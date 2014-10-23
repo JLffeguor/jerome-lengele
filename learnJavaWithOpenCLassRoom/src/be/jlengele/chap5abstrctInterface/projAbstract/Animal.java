@@ -2,17 +2,25 @@ package be.jlengele.chap5abstrctInterface.projAbstract;
 
 public abstract class Animal {
 
-	int poid;
-	String couleur;
+	/**
+	 * les variable sont en protected sinon on ne sait pas y acceder dans les classe filles
+	 */
+	public int poids;
+	public String couleur;
 	
 	
-	protected void manger(String m){
+	public void manger(String m){
 		System.out.println("Je mange du/de la/des " + m);
 	}
-	protected void boire(){
+	public void boire(){
 		System.out.println("je bois de l'eau");
 	}
-	abstract void deplacement();
-	abstract void crier();
+	public abstract void deplacement();
+	public abstract void crier();
+	
+	public String toString(){
+	    String str = "Je suis un objet de la " + this.getClass() + ", je suis " + this.couleur + ", je pèse " + this.poids;
+	    return str;
+	  } 
 	
 }
