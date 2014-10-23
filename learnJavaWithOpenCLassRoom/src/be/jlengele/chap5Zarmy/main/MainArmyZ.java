@@ -2,6 +2,7 @@ package be.jlengele.chap5Zarmy.main;
 
 import java.util.ArrayList;
 
+import be.jlengele.chap5Zarmy.comportement.soin.Operation;
 import be.jlengele.chap5Zarmy.model.Civil;
 import be.jlengele.chap5Zarmy.model.Guerrier;
 import be.jlengele.chap5Zarmy.model.Medecin;
@@ -17,6 +18,11 @@ public class MainArmyZ {
 		tPers.add(new Guerrier());
 		tPers.add(new Medecin());
 		tPers.add(new Civil());
+		
+		
+		Personnage guerrier = new Guerrier();
+		guerrier.soigner();
+		guerrier.setSoin(new Operation());
 		
 		/**
 		 * utilisation du for each pour un array list
