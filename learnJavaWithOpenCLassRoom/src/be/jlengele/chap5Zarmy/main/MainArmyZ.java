@@ -19,10 +19,14 @@ public class MainArmyZ {
 		tPers.add(new Medecin());
 		tPers.add(new Civil());
 		
-		
+		/**
+		 * utilisation du patern Strategy.
+		 */
 		Personnage guerrier = new Guerrier();
 		guerrier.soigner();
 		guerrier.setSoin(new Operation());
+		
+		tPers.add(guerrier);
 		
 		/**
 		 * utilisation du for each pour un array list
