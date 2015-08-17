@@ -6,7 +6,7 @@ public class Marcher implements IntDeplacement{
 
 	@Override
 	public void deplace() {
-		System.out.println("je me dÃ©place en marchant");
+		System.out.println("je me déplace en marchant");
 	}
 
 }
