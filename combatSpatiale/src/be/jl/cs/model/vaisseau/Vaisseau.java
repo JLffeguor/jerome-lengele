@@ -47,14 +47,10 @@ public abstract class Vaisseau {
 	 * @param nom
 	 * @param deplacement
 	 */
-	public Vaisseau(String nom, IntDeplacement deplacement) throws NomVaisseauException{
+	public Vaisseau(String nom, IntDeplacement deplacement)  {
 		
-		if(nom.startsWith(" ")){
-			throw new NomVaisseauException(nom);
-		}else{
 			this.nom = nom;
 			this.modeDeplacement = deplacement;
-		}
 	}	
 	
 	//getter et setter

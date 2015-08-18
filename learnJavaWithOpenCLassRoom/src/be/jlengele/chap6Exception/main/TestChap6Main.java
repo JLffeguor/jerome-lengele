@@ -14,5 +14,4 @@ public class TestChap6Main {
 			System.out.println("ERROR");
 		}
 	}
-
 }
