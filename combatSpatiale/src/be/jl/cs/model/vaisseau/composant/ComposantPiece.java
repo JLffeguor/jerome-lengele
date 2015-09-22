@@ -1,0 +1,83 @@
+package be.jl.cs.model.vaisseau.composant;
+
+import java.util.List;
+
+/**
+ * 
+ * @author jlengele
+ *
+ *C'est l'élement qui compose une pièce ex : fer, cuivre , agent , or
+ *il possède 
+ *une resistance a la pression au cm²/mm d'épaisseur,
+ * une resistance a la perforation au cm²/mm d'épaisseur
+ *une résistance a la chaleur, un poid au grammes, il peut etre composé de plusieur Composant 
+ */
+public class ComposantPiece {
+
+	private String nom;
+	private List<ComposantPiece> compositionAliage;
+	private Double resistancePression;// => cm²/mm d'épaisseur
+	private Double resistancePerforation;// => cm²/mm d'épaisseur
+	private Double resistanceChaleur;// => en K
+	private Double poidmiliGrammes;// => en mg/mm³
+	
+	/*
+	 * constructeur
+	 */
+	public ComposantPiece(){
+		
+	}
+
+	/*
+	 * getters et setters
+	 */
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public List<ComposantPiece> getCompositionAliage() {
+		return compositionAliage;
+	}
+
+	public void setCompositionAliage(List<ComposantPiece> compositionAliage) {
+		this.compositionAliage = compositionAliage;
+	}
+
+	public Double getResistancePression() {
+		return resistancePression;
+	}
+
+	public void setResistancePression(Double resistancePression) {
+		this.resistancePression = resistancePression;
+	}
+
+	public Double getResistancePerforation() {
+		return resistancePerforation;
+	}
+
+	public void setResistancePerforation(Double resistancePerforation) {
+		this.resistancePerforation = resistancePerforation;
+	}
+
+	public Double getResistanceChaleur() {
+		return resistanceChaleur;
+	}
+
+	public void setResistanceChaleur(Double resistanceChaleur) {
+		this.resistanceChaleur = resistanceChaleur;
+	}
+
+	public Double getPoidGrammes() {
+		return poidmiliGrammes;
+	}
+
+	public void setPoidGrammes(Double poidGrammes) {
+		this.poidmiliGrammes = poidGrammes;
+	}
+	
+	
+}

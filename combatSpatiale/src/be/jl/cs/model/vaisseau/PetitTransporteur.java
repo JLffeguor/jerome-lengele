@@ -9,9 +9,9 @@ public class PetitTransporteur extends Vaisseau{
 	public PetitTransporteur(){
 		this.modeDeplacement = new Stationnaire();
 	}
-	public PetitTransporteur(int f, double vb, double tc){
-		super(f, vb, tc);
-	}
+	public PetitTransporteur(int f, double vb){
+		super(f, vb);
+		}
 	
 	/*
 	 * je dois mettre le throws pour rappeler l'exception dans la classe mère Vaisseau

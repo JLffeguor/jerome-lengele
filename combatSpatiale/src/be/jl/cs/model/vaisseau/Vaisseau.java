@@ -1,6 +1,7 @@
 package be.jl.cs.model.vaisseau;
 
 import be.jl.cs.exception.NomVaisseauException;
+import be.jl.cs.model.vaisseau.composant.Coque;
 import be.jl.cs.model.vaisseau.deplacement.Combustion;
 import be.jl.cs.model.vaisseau.deplacement.IntDeplacement;
 import be.jl.cs.model.vaisseau.deplacement.Stationnaire;
@@ -22,7 +23,7 @@ public abstract class Vaisseau {
 	private String nom;
 	private int fret;
 	private double vitesseBase;
-	private double tailleCoque;
+	private Coque coqueVaisseau;
 	
 	
 	/**
@@ -36,10 +37,9 @@ public abstract class Vaisseau {
 		
 	}; 
 	
-	public Vaisseau(int fret, double vb,double tc){
+	public Vaisseau(int fret, double vb){
 		this.fret=fret;
 		this.vitesseBase = vb;
-		this.tailleCoque = tc;
 	}
 	
 	/**
@@ -79,14 +79,6 @@ public abstract class Vaisseau {
 
 	public void setVitesseBase(double vitesseBase) {
 		this.vitesseBase = vitesseBase;
-	}
-
-	public double getTailleCoque() {
-		return tailleCoque;
-	}
-
-	public void setTailleCoque(double tailleCoque) {
-		this.tailleCoque = tailleCoque;
 	}
 	
 }
