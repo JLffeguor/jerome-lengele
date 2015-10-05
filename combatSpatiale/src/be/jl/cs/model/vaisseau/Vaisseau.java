@@ -11,8 +11,6 @@ import be.jl.cs.model.vaisseau.deplacement.Stationnaire;
  * @version 1.0
  */
 public abstract class Vaisseau {
-	
-	
 
 	/*
 	 * instance de déplacement ==> ce qui va nous permettre de crée 
@@ -24,7 +22,6 @@ public abstract class Vaisseau {
 	private int fret;
 	private double vitesseBase;
 	private Coque coqueVaisseau;
-	
 	
 	/**
 	 * Constructeur sans paramètre
@@ -48,7 +45,6 @@ public abstract class Vaisseau {
 	 * @param deplacement
 	 */
 	public Vaisseau(String nom, IntDeplacement deplacement)  {
-		
 			this.nom = nom;
 			this.modeDeplacement = deplacement;
 	}	
@@ -80,5 +76,12 @@ public abstract class Vaisseau {
 	public void setVitesseBase(double vitesseBase) {
 		this.vitesseBase = vitesseBase;
 	}
-	
+
+	public Coque getCoqueVaisseau() {
+		return coqueVaisseau;
+	}
+
+	public void setCoqueVaisseau(Coque coqueVaisseau) {
+		this.coqueVaisseau = coqueVaisseau;
+	}
 }

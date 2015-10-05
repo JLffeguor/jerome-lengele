@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import be.jl.cs.exception.NomVaisseauException;
 import be.jl.cs.model.vaisseau.PetitTransporteur;
 import be.jl.cs.model.vaisseau.Vaisseau;
+import be.jl.cs.model.vaisseau.composant.ComposantPiece;
 import be.jl.cs.model.vaisseau.deplacement.Combustion;
 import be.jl.cs.model.vaisseau.deplacement.Stationnaire;
 import be.jl.cs.tools.DataTools;
@@ -28,19 +29,29 @@ public class ScenarioTest1 {
 		 */
 
 		Vaisseau pt = new PetitTransporteur();
-
+		// création d'un composant
+		ComposantPiece fer = new ComposantPiece();
+		fer.setNom("FER");
+		fer.setResistancePerforation(Double.valueOf(4));
+		fer.setPoidGrammes(Double.valueOf(7.8740));
+		fer.setResistanceChaleur(Double.valueOf(1811.2));
+		fer.setResistancePression(Double.valueOf(7.8740));
+		
+		
+		
+		
 		pt.deplacement();
 		pt.setModeDeplacement(new Combustion());
 		pt.deplacement();
 
 		try {
 			Vaisseau v1 = new PetitTransporteur("hello", new Stationnaire());
-			System.out.println(v1.toString());
+			//System.out.println(v1.toString());
 		} catch (NomVaisseauException e) {
 			System.out.println("ERROR");
 		}
 
-		Vaisseau pt1 = new PetitTransporteur(100, 1000, 10);
+		Vaisseau pt1 = new PetitTransporteur(100,Double.valueOf(1000));
 
 		System.out.println("le vaisseau a " + pt1.getFret()
 				+ " de taille de soute");

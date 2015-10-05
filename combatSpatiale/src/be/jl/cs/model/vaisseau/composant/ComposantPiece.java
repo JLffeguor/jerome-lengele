@@ -20,12 +20,14 @@ public class ComposantPiece {
 	private Double resistancePerforation;// => cm²/mm d'épaisseur
 	private Double resistanceChaleur;// => en K
 	private Double poidmiliGrammes;// => en mg/mm³
+	private Double prctDeComposition; // => lors d'un alliange, détermine le pourcentage de chaque composant.
 	
 	/*
 	 * constructeur
 	 */
 	public ComposantPiece(){
-		
+		this.compositionAliage = null;
+		this.prctDeComposition = Double.valueOf(100);
 	}
 
 	/*

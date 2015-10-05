@@ -1,0 +1,5 @@
+
+ComposantPiece : est la base de tout, tout piece est composer a partis d'un ou plusieurs de ces element
+
+
+La Coques est composée de un/plusieur blindage, un blindage étant un élément de base est composer d'un ou d'un ensemble d'élément

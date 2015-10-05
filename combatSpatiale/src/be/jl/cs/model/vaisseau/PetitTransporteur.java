@@ -19,8 +19,4 @@ public class PetitTransporteur extends Vaisseau{
 	public PetitTransporteur(String nom, IntDeplacement deplacement) throws NomVaisseauException{
 		super (nom,deplacement);
 	}
-	
-	
-	
-	
 }
