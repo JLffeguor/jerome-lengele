@@ -32,7 +32,7 @@ public abstract class Vaisseau {
 	 */
 	public Vaisseau() {
 		
-	}; 
+	}
 	
 	public Vaisseau(int fret, double vb){
 		this.fret=fret;
@@ -83,5 +83,14 @@ public abstract class Vaisseau {
 
 	public void setCoqueVaisseau(Coque coqueVaisseau) {
 		this.coqueVaisseau = coqueVaisseau;
+	}
+	
+	public String presenterVaisseau(){
+		
+		return "Voici les caractéristiques du vaisseau \nNom : " + this.nom
+						 	 + "\ncapacité de Fret : " + this.fret
+						 	 + "\n\tcaractéristique de la coque : "
+						 	 + coqueVaisseau.presenterCoques();
+		
 	}
 }

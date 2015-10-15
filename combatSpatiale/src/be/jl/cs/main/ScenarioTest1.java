@@ -2,10 +2,13 @@ package be.jl.cs.main;
 
 import java.util.ArrayList;
 
+import be.jl.cs.exception.BlindageException;
 import be.jl.cs.exception.NomVaisseauException;
 import be.jl.cs.model.vaisseau.PetitTransporteur;
 import be.jl.cs.model.vaisseau.Vaisseau;
+import be.jl.cs.model.vaisseau.composant.Blindage;
 import be.jl.cs.model.vaisseau.composant.ComposantPiece;
+import be.jl.cs.model.vaisseau.composant.Coque;
 import be.jl.cs.model.vaisseau.deplacement.Combustion;
 import be.jl.cs.model.vaisseau.deplacement.Stationnaire;
 import be.jl.cs.tools.DataTools;
@@ -28,7 +31,14 @@ public class ScenarioTest1 {
 		 * fur et a mesure que des technologie seront développée.
 		 */
 
-		Vaisseau pt = new PetitTransporteur();
+		Vaisseau pt = null;
+		try {
+			pt = new PetitTransporteur("Premier petit transporteur",new Combustion());
+		} catch (NomVaisseauException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		// création d'un composant
 		ComposantPiece fer = new ComposantPiece();
 		fer.setNom("FER");
@@ -36,28 +46,32 @@ public class ScenarioTest1 {
 		fer.setPoidGrammes(Double.valueOf(7.8740));
 		fer.setResistanceChaleur(Double.valueOf(1811.2));
 		fer.setResistancePression(Double.valueOf(7.8740));
+		fer.setPrctDeComposition(Double.valueOf(100));
 		
+		Blindage blindage =  new Blindage();
+		blindage.setEpaisseurMM(Double.valueOf(125));
+		blindage.setMateriel(fer);
+		blindage.setSurface(Double.valueOf(300000));
 		
-		
-		
-		pt.deplacement();
-		pt.setModeDeplacement(new Combustion());
-		pt.deplacement();
-
+		Coque coque = new Coque();
 		try {
-			Vaisseau v1 = new PetitTransporteur("hello", new Stationnaire());
-			//System.out.println(v1.toString());
-		} catch (NomVaisseauException e) {
-			System.out.println("ERROR");
+			coque.ajouterBlindage(blindage);
+		} catch (BlindageException e1) {
+			e1.getCause();
 		}
+		
+//		pt.deplacement();
+//		pt.setModeDeplacement(new Combustion());
+//		pt.deplacement();
+		pt.setCoqueVaisseau(coque);
 
-		Vaisseau pt1 = new PetitTransporteur(100,Double.valueOf(1000));
-
-		System.out.println("le vaisseau a " + pt1.getFret()
-				+ " de taille de soute");
-		pt1.setFret((int) DataTools.ajprctvaleur(pt1.getFret(), 50));
-		System.out.println("le vaisseau a " + pt1.getFret()
-				+ " de taille de soute");
+		System.out.println(pt.presenterVaisseau());
 
 	}
+
+
+
+
+
+
 }

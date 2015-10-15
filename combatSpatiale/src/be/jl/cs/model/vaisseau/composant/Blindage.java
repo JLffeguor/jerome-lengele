@@ -1,5 +1,7 @@
 package be.jl.cs.model.vaisseau.composant;
 
+import java.text.DecimalFormat;
+
 /**
  * 
  * @author jlengele
@@ -12,8 +14,6 @@ public class Blindage {
 	private Double epaisseurMM;
 	private ComposantPiece materiel;
 	private Double surfaceCmC;
-	
-	
 	
 	/*
 	 * constructeur
@@ -51,21 +51,22 @@ public class Blindage {
 	 * calcule ma résistance a la pression du blindage
 	 * @return Double
 	 */
-	private Double resistancePressionBlindage(){
-		return materiel.getResistancePression()*this.epaisseurMM*this.surfaceCmC ;
+	public Double resistancePressionBlindage(){
+		return (materiel.getResistancePression()*this.epaisseurMM*this.surfaceCmC)/1000 ;
+		
 	}
 	/**
 	 * calcule la résistance a la perforation du blindage
 	 * @return Double
 	 * 
 	 */
-	private Double resistancePerforationBlindage(){
-		return materiel.getResistancePerforation()*this.epaisseurMM*this.surfaceCmC;
+	public Double resistancePerforationBlindage(){
+		return (materiel.getResistancePerforation()*this.epaisseurMM*this.surfaceCmC)/1000;
 	}
 	/**
 	 * 
 	 */
-	private Double poidBlindageKg(){
+	public Double poidBlindageKg(){
 		double volumeBlindageCmC,poid;
 		//on obtient le volume en cm³
 		volumeBlindageCmC = this.surfaceCmC * (this.epaisseurMM/1000);

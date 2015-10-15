@@ -13,9 +13,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		new ScenarioTestFichier();
+//		new ScenarioTestFichier();
 		
-//		new ScenarioTest1();
+		new ScenarioTest1();
 	
 		
 	}

@@ -22,6 +22,7 @@ public class ComposantPiece {
 	private Double poidmiliGrammes;// => en mg/mm³
 	private Double prctDeComposition; // => lors d'un alliange, détermine le pourcentage de chaque composant.
 	
+	
 	/*
 	 * constructeur
 	 */
@@ -80,6 +81,12 @@ public class ComposantPiece {
 	public void setPoidGrammes(Double poidGrammes) {
 		this.poidmiliGrammes = poidGrammes;
 	}
-	
+	public Double getPrctDeComposition() {
+		return prctDeComposition;
+	}
+	public void setPrctDeComposition(Double prctDeComposition) {
+		this.prctDeComposition = prctDeComposition;
+	}
+
 	
 }
