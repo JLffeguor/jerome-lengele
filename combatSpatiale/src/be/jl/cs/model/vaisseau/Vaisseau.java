@@ -91,6 +91,5 @@ public abstract class Vaisseau {
 						 	 + "\ncapacité de Fret : " + this.fret
 						 	 + "\n\tcaractéristique de la coque : "
 						 	 + coqueVaisseau.presenterCoques();
-		
 	}
 }

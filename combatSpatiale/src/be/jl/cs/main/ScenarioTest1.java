@@ -21,7 +21,7 @@ public class ScenarioTest1 {
 
 		alVaisseau.add(new PetitTransporteur());
 
-		/*
+		/**
 		 * J'utilise ici le pattern strategy Je vais utiliser le fait d'avoir
 		 * isoler ce qui peut varier dans le vaisseau ( le mode de déplacement)
 		 * et je vais pouvoir modifer le type de déplacement du petit
@@ -29,6 +29,10 @@ public class ScenarioTest1 {
 		 * 
 		 * ceci permetra plus tard de pouvoir changer le mode de propulsion au
 		 * fur et a mesure que des technologie seront développée.
+		 * 
+		 * L'objectif de la bonne programmation JAVA est qu'une fois le code taper , tout le reste du programme, toutes les modifications que l'on
+		 * pourrait apporter a un objet se fasse dans le code du main ( exemple avec le changememt de mode de déplacement)
+		 * 
 		 */
 
 		Vaisseau pt = null;
