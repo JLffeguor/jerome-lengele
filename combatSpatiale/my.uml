@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jgIv4IbsEeWM5PYduuU74w" name="NewModel">
+  <packagedElement xmi:type="uml:Class" xmi:id="_vSsX8IbsEeWM5PYduuU74w" name="Combustion">
+    <ownedOperation xmi:id="_5Lnk4IbsEeWM5PYduuU74w" name="Deplace"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LrVBcIbtEeWM5PYduuU74w" name="Stationnaire">
+    <ownedOperation xmi:id="_OcorcIbtEeWM5PYduuU74w" name="Deplace"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_SpiJsIbtEeWM5PYduuU74w" name="IntDeplacement">
+    <generalization xmi:id="_e4KpwIbtEeWM5PYduuU74w" general="_LrVBcIbtEeWM5PYduuU74w"/>
+    <generalization xmi:id="_gvILYIbtEeWM5PYduuU74w" general="_vSsX8IbsEeWM5PYduuU74w"/>
+    <ownedOperation xmi:id="_XEc10IbtEeWM5PYduuU74w" name="Deplace"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_taSZ8IbuEeWM5PYduuU74w" name="Vaisseau">
+    <ownedAttribute xmi:id="_b3omEIbvEeWM5PYduuU74w" name="nom" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_nGg5UIbvEeWM5PYduuU74w"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_q1fFcIbvEeWM5PYduuU74w" name="fret">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <interfaceRealization xmi:id="_uBpqAIbwEeWM5PYduuU74w" client="_taSZ8IbuEeWM5PYduuU74w" supplier="_SpiJsIbtEeWM5PYduuU74w" contract="_SpiJsIbtEeWM5PYduuU74w"/>
+    <ownedOperation xmi:id="_t81Q4IbvEeWM5PYduuU74w" name="Vaisseau"/>
+    <ownedOperation xmi:id="_9R3hMIbvEeWM5PYduuU74w" name="Vaisseau">
+      <ownedParameter xmi:id="__ei0IIbvEeWM5PYduuU74w" name="nom">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_Yala8IbwEeWM5PYduuU74w" name="deplacement" type="_SpiJsIbtEeWM5PYduuU74w"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DFCkQIbxEeWM5PYduuU74w" name="Coque">
+    <ownedAttribute xmi:id="_PowK8IeKEeWM5PYduuU74w" name="listBlindage" type="_HagvsIbxEeWM5PYduuU74w">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aA8GwIeKEeWM5PYduuU74w" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_eqaMQIeKEeWM5PYduuU74w" name="i">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_lhDT8IeKEeWM5PYduuU74w" name="Coque"/>
+    <ownedOperation xmi:id="_m53hAIeKEeWM5PYduuU74w" name="ajouterBlindage">
+      <ownedParameter xmi:id="_o_gX0IeKEeWM5PYduuU74w" name="b" type="_HagvsIbxEeWM5PYduuU74w"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_vfFDUIeKEeWM5PYduuU74w" name="presenterCoques">
+      <ownedParameter xmi:id="_yxWsYIeKEeWM5PYduuU74w" name="s" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_HagvsIbxEeWM5PYduuU74w" name="Blindage">
+    <ownedAttribute xmi:id="_VX1iwIeMEeWM5PYduuU74w" name="epaisseurMM">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_cH_n8IeMEeWM5PYduuU74w" name="materiel" type="_LegwoIbxEeWM5PYduuU74w"/>
+    <ownedAttribute xmi:id="_iFZagIeMEeWM5PYduuU74w" name="surfaceCmC">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_mVmrcIeMEeWM5PYduuU74w" name="Blindage"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_LegwoIbxEeWM5PYduuU74w" name="ComposantPiece">
+    <ownedAttribute xmi:id="_ibdNgIbxEeWM5PYduuU74w" name="nom">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_oT3yYIbxEeWM5PYduuU74w" name="compositionAliage" visibility="private" type="_LegwoIbxEeWM5PYduuU74w">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s_nIwIbxEeWM5PYduuU74w" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_JU148IbyEeWM5PYduuU74w" name="resistancePression" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_Q8HMUIbyEeWM5PYduuU74w" name="resistancePerforation">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_GLobIIeIEeWM5PYduuU74w" name="poismiliGrammes">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Double"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_P4tkcIeIEeWM5PYduuU74w" name="prctDecompition">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Double"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_hCM08IeIEeWM5PYduuU74w" name="ComposantPiece"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Q-8TUIbxEeWM5PYduuU74w" name="ElementVaisseau"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UZAmcIbxEeWM5PYduuU74w" name="Moteur"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_G0yJAIeMEeWM5PYduuU74w" name="est fait avec" memberEnd="_G0yJAYeMEeWM5PYduuU74w _G0zXIoeMEeWM5PYduuU74w" navigableOwnedEnd="_G0yJAYeMEeWM5PYduuU74w _G0zXIoeMEeWM5PYduuU74w">
+    <ownedEnd xmi:id="_G0yJAYeMEeWM5PYduuU74w" name="blindages" type="_HagvsIbxEeWM5PYduuU74w" association="_G0yJAIeMEeWM5PYduuU74w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G0zXIIeMEeWM5PYduuU74w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G0zXIYeMEeWM5PYduuU74w" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_G0zXIoeMEeWM5PYduuU74w" name="composantPieces" type="_LegwoIbxEeWM5PYduuU74w" association="_G0yJAIeMEeWM5PYduuU74w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G0z-MIeMEeWM5PYduuU74w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G0z-MYeMEeWM5PYduuU74w" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_YIZwcIeNEeWM5PYduuU74w" name="coque a blindage" memberEnd="_YIZwcYeNEeWM5PYduuU74w _YIda0oeNEeWM5PYduuU74w" navigableOwnedEnd="_YIda0oeNEeWM5PYduuU74w">
+    <ownedEnd xmi:id="_YIZwcYeNEeWM5PYduuU74w" name="coques" type="_DFCkQIbxEeWM5PYduuU74w" aggregation="composite" association="_YIZwcIeNEeWM5PYduuU74w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YIda0IeNEeWM5PYduuU74w" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YIda0YeNEeWM5PYduuU74w" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_YIda0oeNEeWM5PYduuU74w" name="blindages" type="_HagvsIbxEeWM5PYduuU74w" association="_YIZwcIeNEeWM5PYduuU74w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YIhFMIeNEeWM5PYduuU74w"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YIhFMYeNEeWM5PYduuU74w" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_AYxc8IeOEeWM5PYduuU74w" name="PetitTransporteur">
+    <generalization xmi:id="_mDc5kIeOEeWM5PYduuU74w" general="_taSZ8IbuEeWM5PYduuU74w"/>
+    <ownedOperation xmi:id="_NdU4YIeOEeWM5PYduuU74w" name="PetitTransporteur"/>
+    <ownedOperation xmi:id="_QAsNAIeOEeWM5PYduuU74w" name="PetitTransporteur">
+      <ownedParameter xmi:id="_RrKKwIeOEeWM5PYduuU74w" name="f">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_VePa0IeOEeWM5PYduuU74w" name="vb">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Double"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_aOL7wIeOEeWM5PYduuU74w" name="PetitTransporteur">
+      <ownedParameter xmi:id="_d98yEIeOEeWM5PYduuU74w" name="nom">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_iHbv8IeOEeWM5PYduuU74w" name="deplacement" type="_SpiJsIbtEeWM5PYduuU74w"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_7EQZ4IeOEeWM5PYduuU74w" memberEnd="_7EQZ4YeOEeWM5PYduuU74w _7ERoAYeOEeWM5PYduuU74w" navigableOwnedEnd="_7EQZ4YeOEeWM5PYduuU74w _7ERoAYeOEeWM5PYduuU74w">
+    <ownedEnd xmi:id="_7EQZ4YeOEeWM5PYduuU74w" name="coques" type="_DFCkQIbxEeWM5PYduuU74w" association="_7EQZ4IeOEeWM5PYduuU74w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7ERA8IeOEeWM5PYduuU74w"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7ERoAIeOEeWM5PYduuU74w" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_7ERoAYeOEeWM5PYduuU74w" name="vaisseaus" type="_taSZ8IbuEeWM5PYduuU74w" association="_7EQZ4IeOEeWM5PYduuU74w">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7ESPEIeOEeWM5PYduuU74w"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7ESPEYeOEeWM5PYduuU74w" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

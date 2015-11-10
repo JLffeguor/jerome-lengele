@@ -4,11 +4,8 @@ import java.text.DecimalFormat;
 import java.text.FieldPosition;
 import java.util.ArrayList;
 import java.util.LinkedList;
-
 import be.jl.cs.exception.BlindageException;
 import be.jl.cs.tools.DataTools;
-
-
 /**
  * 
  * @author jlengele
@@ -39,12 +36,8 @@ public class Coque {
 		
 		retour.append("\n---------COQUE---------\n");
 		
-		
-		
 		for(Blindage blindage : listBlindage){
 			i++;
-			
-			
 			retour.append("Blindage n° " + i
 					+ "\n\tépaisseur(mm) : " + String.valueOf(blindage.getEpaisseurMM()) 
 					+ "\n\tSurface(cm²) : " + String.valueOf(blindage.getSurface())
@@ -56,9 +49,6 @@ public class Coque {
 					+ "\n\t\t\tSa résistance a la perforation est de : " + DataTools.doubleToString(blindage.resistancePerforationBlindage())
 					);
 		}
-		
-		
-		
 		return retour;
 	}
 }
