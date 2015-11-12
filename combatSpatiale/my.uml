@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jgIv4IbsEeWM5PYduuU74w" name="NewModel">
-  <packagedElement xmi:type="uml:Class" xmi:id="_vSsX8IbsEeWM5PYduuU74w" name="Combustion">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jgIv4IbsEeWM5PYduuU74w" name="NewModel">
+  <packagedElement xmi:type="uml:Class" xmi:id="_vSsX8IbsEeWM5PYduuU74w" name="Deplacement">
     <ownedOperation xmi:id="_5Lnk4IbsEeWM5PYduuU74w" name="Deplace"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_LrVBcIbtEeWM5PYduuU74w" name="Stationnaire">
@@ -19,6 +19,10 @@
     <ownedAttribute xmi:id="_q1fFcIbvEeWM5PYduuU74w" name="fret">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_xZALgIkNEeWUbrTQgSUZZA" name="CaseDispoCoque">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_7BZCEIkNEeWUbrTQgSUZZA" name="caseDispoSystemeProulsion"/>
     <interfaceRealization xmi:id="_uBpqAIbwEeWM5PYduuU74w" client="_taSZ8IbuEeWM5PYduuU74w" supplier="_SpiJsIbtEeWM5PYduuU74w" contract="_SpiJsIbtEeWM5PYduuU74w"/>
     <ownedOperation xmi:id="_t81Q4IbvEeWM5PYduuU74w" name="Vaisseau"/>
     <ownedOperation xmi:id="_9R3hMIbvEeWM5PYduuU74w" name="Vaisseau">
@@ -74,10 +78,22 @@
     <ownedAttribute xmi:id="_P4tkcIeIEeWM5PYduuU74w" name="prctDecompition">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Double"/>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_WGXTAIkIEeWUbrTQgSUZZA" name="rarete">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
     <ownedOperation xmi:id="_hCM08IeIEeWM5PYduuU74w" name="ComposantPiece"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_Q-8TUIbxEeWM5PYduuU74w" name="ElementVaisseau"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_UZAmcIbxEeWM5PYduuU74w" name="Moteur"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_UZAmcIbxEeWM5PYduuU74w" name="NoyauEnergie">
+    <generalization xmi:id="_rdGgMIfNEeWUbrTQgSUZZA" general="_XpmggIfNEeWUbrTQgSUZZA"/>
+    <ownedAttribute xmi:id="_3lylQIkKEeWUbrTQgSUZZA" name="nom">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_9KIXkIkKEeWUbrTQgSUZZA" name="place"/>
+    <ownedAttribute xmi:id="_sRX1QIkLEeWUbrTQgSUZZA" name="reacteurCompatible" type="_cvuFQIkLEeWUbrTQgSUZZA"/>
+    <ownedAttribute xmi:id="__jdUgIkMEeWUbrTQgSUZZA" name="nbrReacteurGerer">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+  </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_G0yJAIeMEeWM5PYduuU74w" name="est fait avec" memberEnd="_G0yJAYeMEeWM5PYduuU74w _G0zXIoeMEeWM5PYduuU74w" navigableOwnedEnd="_G0yJAYeMEeWM5PYduuU74w _G0zXIoeMEeWM5PYduuU74w">
     <ownedEnd xmi:id="_G0yJAYeMEeWM5PYduuU74w" name="blindages" type="_HagvsIbxEeWM5PYduuU74w" association="_G0yJAIeMEeWM5PYduuU74w">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G0zXIIeMEeWM5PYduuU74w" value="1"/>
@@ -124,6 +140,139 @@
     <ownedEnd xmi:id="_7ERoAYeOEeWM5PYduuU74w" name="vaisseaus" type="_taSZ8IbuEeWM5PYduuU74w" association="_7EQZ4IeOEeWM5PYduuU74w">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7ESPEIeOEeWM5PYduuU74w"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7ESPEYeOEeWM5PYduuU74w" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_rOTEoIfMEeWUbrTQgSUZZA" name="SystèmeDePropulsion">
+    <ownedAttribute xmi:id="_w06u4IfMEeWUbrTQgSUZZA" name="moteur" type="_JX1EAIfNEeWUbrTQgSUZZA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0kNEEIfMEeWUbrTQgSUZZA" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_S04pQIkKEeWUbrTQgSUZZA" name="noyau" type="_UZAmcIbxEeWM5PYduuU74w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6lLIAIfMEeWUbrTQgSUZZA" name="avance grace a " memberEnd="_6lLvEIfMEeWUbrTQgSUZZA _6liUYIfMEeWUbrTQgSUZZA" navigableOwnedEnd="_6lLvEIfMEeWUbrTQgSUZZA _6liUYIfMEeWUbrTQgSUZZA">
+    <ownedEnd xmi:id="_6lLvEIfMEeWUbrTQgSUZZA" name="vaisseaus" type="_taSZ8IbuEeWM5PYduuU74w" association="_6lLIAIfMEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6lhtUIfMEeWUbrTQgSUZZA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6lhtUYfMEeWUbrTQgSUZZA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_6liUYIfMEeWUbrTQgSUZZA" name="systèmeDePropulsions" type="_rOTEoIfMEeWUbrTQgSUZZA" association="_6lLIAIfMEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6lxk8IfMEeWUbrTQgSUZZA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6lxk8YfMEeWUbrTQgSUZZA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JX1EAIfNEeWUbrTQgSUZZA" name="Reacteur">
+    <generalization xmi:id="_sgR0cIfNEeWUbrTQgSUZZA" general="_XpmggIfNEeWUbrTQgSUZZA"/>
+    <ownedAttribute xmi:id="_m-XDgIkLEeWUbrTQgSUZZA" name="nom">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_yR7pgIkLEeWUbrTQgSUZZA" name="typeReacteur" type="_cvuFQIkLEeWUbrTQgSUZZA"/>
+    <ownedAttribute xmi:id="_3FdC4IkLEeWUbrTQgSUZZA" name="energieProd" type="_XpmggIfNEeWUbrTQgSUZZA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_XpmggIfNEeWUbrTQgSUZZA" name="ProductionEnergie">
+    <ownedAttribute xmi:id="_anktgIfNEeWUbrTQgSUZZA" name="puissanceGw">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_i8cGsIfNEeWUbrTQgSUZZA" name="TypeEnergieConsomme" type="_4hwtAIkEEeWUbrTQgSUZZA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_krge0IkFEeWUbrTQgSUZZA" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_hzHx4IkEEeWUbrTQgSUZZA" memberEnd="_hzIY8IkEEeWUbrTQgSUZZA _hzJnEYkEEeWUbrTQgSUZZA" navigableOwnedEnd="_hzIY8IkEEeWUbrTQgSUZZA _hzJnEYkEEeWUbrTQgSUZZA">
+    <ownedEnd xmi:id="_hzIY8IkEEeWUbrTQgSUZZA" name="reacteurs" type="_JX1EAIfNEeWUbrTQgSUZZA" association="_hzHx4IkEEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hzJAAIkEEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hzJnEIkEEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_hzJnEYkEEeWUbrTQgSUZZA" name="systèmeDePropulsions" type="_rOTEoIfMEeWUbrTQgSUZZA" association="_hzHx4IkEEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hzKOIIkEEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hzKOIYkEEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_i6UDcIkEEeWUbrTQgSUZZA" memberEnd="_i6UqgIkEEeWUbrTQgSUZZA _i6WfsIkEEeWUbrTQgSUZZA" navigableOwnedEnd="_i6UqgIkEEeWUbrTQgSUZZA _i6WfsIkEEeWUbrTQgSUZZA">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_i6UqgIkEEeWUbrTQgSUZZA" name="moteurs" type="_UZAmcIbxEeWM5PYduuU74w" association="_i6UDcIkEEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i6V4oIkEEeWUbrTQgSUZZA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i6V4oYkEEeWUbrTQgSUZZA" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_i6WfsIkEEeWUbrTQgSUZZA" name="systèmeDePropulsions" type="_rOTEoIfMEeWUbrTQgSUZZA" association="_i6UDcIkEEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i6Xt0IkEEeWUbrTQgSUZZA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i6Xt0YkEEeWUbrTQgSUZZA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4hwtAIkEEeWUbrTQgSUZZA" name="Energie">
+    <ownedComment xmi:id="_eUD_IIkGEeWUbrTQgSUZZA" annotatedElement="_4hwtAIkEEeWUbrTQgSUZZA">
+      <body>Explication sur la variable productionKwH :&#xD;
+Elle exprime la quantité d'energie produite ( en kw) en 1 heure en consomant 1 litres de cette energie.&#xD;
+le type d'energie (essence, gaz, deutérieum, hydrogène, oxygène, plutonium, radium, cadnium, palladium) est un element de ComposantPiece</body>
+    </ownedComment>
+    <ownedAttribute xmi:id="_9N1akIkEEeWUbrTQgSUZZA" name="nom">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_qnLMAIkFEeWUbrTQgSUZZA" name="productionKwH">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_SGYE0IkHEeWUbrTQgSUZZA" name="Composant" type="_LegwoIbxEeWM5PYduuU74w">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XXmt4IkHEeWUbrTQgSUZZA" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qgr3kIkHEeWUbrTQgSUZZA" memberEnd="_qgr3kYkHEeWUbrTQgSUZZA _qgtFsokHEeWUbrTQgSUZZA" navigableOwnedEnd="_qgr3kYkHEeWUbrTQgSUZZA _qgtFsokHEeWUbrTQgSUZZA">
+    <ownedEnd xmi:id="_qgr3kYkHEeWUbrTQgSUZZA" name="composantPropulsions" type="_XpmggIfNEeWUbrTQgSUZZA" association="_qgr3kIkHEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qgtFsIkHEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qgtFsYkHEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qgtFsokHEeWUbrTQgSUZZA" name="energies" type="_4hwtAIkEEeWUbrTQgSUZZA" association="_qgr3kIkHEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qgtswIkHEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qguT0IkHEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_rjq-kIkHEeWUbrTQgSUZZA" memberEnd="_rjrloIkHEeWUbrTQgSUZZA _rjszwYkHEeWUbrTQgSUZZA" navigableOwnedEnd="_rjrloIkHEeWUbrTQgSUZZA _rjszwYkHEeWUbrTQgSUZZA">
+    <ownedEnd xmi:id="_rjrloIkHEeWUbrTQgSUZZA" name="energies" type="_4hwtAIkEEeWUbrTQgSUZZA" association="_rjq-kIkHEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rjsMsIkHEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rjszwIkHEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_rjszwYkHEeWUbrTQgSUZZA" name="composantPieces" type="_LegwoIbxEeWM5PYduuU74w" association="_rjq-kIkHEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rjta0IkHEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rjta0YkHEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_66WNoIkHEeWUbrTQgSUZZA" name="Rarete">
+    <ownedAttribute xmi:id="_CebDEIkIEeWUbrTQgSUZZA" name="nom">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_N6_NAIkIEeWUbrTQgSUZZA" name="prctTrouve">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_cmG9oIkIEeWUbrTQgSUZZA" memberEnd="_cmG9oYkIEeWUbrTQgSUZZA _cmcU0YkIEeWUbrTQgSUZZA" navigableOwnedEnd="_cmG9oYkIEeWUbrTQgSUZZA _cmcU0YkIEeWUbrTQgSUZZA">
+    <ownedEnd xmi:id="_cmG9oYkIEeWUbrTQgSUZZA" name="raretes" type="_66WNoIkHEeWUbrTQgSUZZA" association="_cmG9oIkIEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cmbtwIkIEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cmcU0IkIEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_cmcU0YkIEeWUbrTQgSUZZA" name="composantPieces" type="_LegwoIbxEeWM5PYduuU74w" association="_cmG9oIkIEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cmsMcIkIEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cmsMcYkIEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_cvuFQIkLEeWUbrTQgSUZZA" name="EReacteur">
+    <ownedAttribute xmi:id="_hQs9IIkLEeWUbrTQgSUZZA" name="nom">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Cpa1UIkMEeWUbrTQgSUZZA" memberEnd="_CpbcYIkMEeWUbrTQgSUZZA _CpcqgYkMEeWUbrTQgSUZZA" navigableOwnedEnd="_CpbcYIkMEeWUbrTQgSUZZA">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_CpbcYIkMEeWUbrTQgSUZZA" name="eReacteurs" type="_cvuFQIkLEeWUbrTQgSUZZA" association="_Cpa1UIkMEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CpcDcIkMEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CpcqgIkMEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_CpcqgYkMEeWUbrTQgSUZZA" name="noyauEnergies" type="_UZAmcIbxEeWM5PYduuU74w" association="_Cpa1UIkMEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CpdRkIkMEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CpdRkYkMEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_DdevgIkMEeWUbrTQgSUZZA" memberEnd="_DdfWkIkMEeWUbrTQgSUZZA _DdhLwIkMEeWUbrTQgSUZZA" navigableOwnedEnd="_DdfWkIkMEeWUbrTQgSUZZA _DdhLwIkMEeWUbrTQgSUZZA">
+    <ownedEnd xmi:id="_DdfWkIkMEeWUbrTQgSUZZA" name="eReacteurs" type="_cvuFQIkLEeWUbrTQgSUZZA" association="_DdevgIkMEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DdgksIkMEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DdgksYkMEeWUbrTQgSUZZA" value="*"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_DdhLwIkMEeWUbrTQgSUZZA" name="reacteurs" type="_JX1EAIfNEeWUbrTQgSUZZA" association="_DdevgIkMEeWUbrTQgSUZZA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DdiZ4IkMEeWUbrTQgSUZZA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DdiZ4YkMEeWUbrTQgSUZZA" value="*"/>
     </ownedEnd>
   </packagedElement>
 </uml:Model>

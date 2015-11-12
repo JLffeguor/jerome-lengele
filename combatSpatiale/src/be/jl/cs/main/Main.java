@@ -15,7 +15,9 @@ public class Main {
 		
 //		new ScenarioTestFichier();
 		
-		new ScenarioTest1();
+//		new ScenarioTest1();
+		
+		new ScenarioTestJFrame();
 	
 		
 	}
