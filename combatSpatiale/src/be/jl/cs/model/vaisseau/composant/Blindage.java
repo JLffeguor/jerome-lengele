@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 public class Blindage {
 
 	private Double epaisseurMM;
-	private ComposantPiece materiel;
+	private ElementUnivers materiel;
 	private Double surfaceCmC;
 	
 	/*
@@ -33,11 +33,11 @@ public class Blindage {
 		this.epaisseurMM = epaisseurMM;
 	}
 
-	public ComposantPiece getMateriel() {
+	public ElementUnivers getMateriel() {
 		return materiel;
 	}
 
-	public void setMateriel(ComposantPiece materiel) {
+	public void setMateriel(ElementUnivers materiel) {
 		this.materiel = materiel;
 	}
 	public Double getSurface(){
