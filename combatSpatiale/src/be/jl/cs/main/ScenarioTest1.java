@@ -7,7 +7,7 @@ import be.jl.cs.exception.NomVaisseauException;
 import be.jl.cs.model.vaisseau.PetitTransporteur;
 import be.jl.cs.model.vaisseau.Vaisseau;
 import be.jl.cs.model.vaisseau.composant.Blindage;
-import be.jl.cs.model.vaisseau.composant.ComposantPiece;
+import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 import be.jl.cs.model.vaisseau.composant.Coque;
 import be.jl.cs.model.vaisseau.deplacement.Combustion;
 import be.jl.cs.model.vaisseau.deplacement.Stationnaire;
@@ -44,7 +44,7 @@ public class ScenarioTest1 {
 		}
 		
 		// création d'un composant
-		ComposantPiece fer = new ComposantPiece();
+		ElementUnivers fer = new ElementUnivers();
 		fer.setNom("FER");
 		fer.setResistancePerforation(Double.valueOf(4));
 		fer.setPoidGrammes(Double.valueOf(7.8740));
