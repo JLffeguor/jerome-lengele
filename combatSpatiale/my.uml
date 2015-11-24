@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_jgIv4IbsEeWM5PYduuU74w" name="NewModel">
-  <packagedElement xmi:type="uml:Class" xmi:id="_vSsX8IbsEeWM5PYduuU74w" name="Deplacement">
+  <packagedElement xmi:type="uml:Class" xmi:id="_vSsX8IbsEeWM5PYduuU74w" name="Deplacement" isAbstract="true">
     <ownedOperation xmi:id="_5Lnk4IbsEeWM5PYduuU74w" name="Deplace"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_LrVBcIbtEeWM5PYduuU74w" name="Stationnaire">
@@ -275,4 +275,7 @@ le type d'energie (essence, gaz, deutérieum, hydrogène, oxygène, plutonium, r
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DdiZ4YkMEeWUbrTQgSUZZA" value="*"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_9aGg0Ix5EeWFVOiq9eOceg" name="Scenario_0"/>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_9l9LgIx5EeWFVOiq9eOceg" name="Scenario_1"/>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_f84YYIx6EeWFVOiq9eOceg" name="NewModel activity"/>
 </uml:Model>
