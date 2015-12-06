@@ -1,9 +1,14 @@
 package be.jl.cs.main;
 
-import frameCS.MainFrame;
+import frameCS.PresentationElemFrame;
 
 public class ScenarioTestJFrame {
 
-	MainFrame mainFrame = new MainFrame();
+//	MainFrame mainFrame = new MainFrame();
+	
+	
+	PresentationElemFrame mainFrame = new PresentationElemFrame();
+	
+	
 	
 }

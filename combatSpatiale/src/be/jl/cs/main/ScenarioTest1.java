@@ -15,9 +15,16 @@ import be.jl.cs.tools.DataTools;
 
 public class ScenarioTest1 {
 
+	
+	private ArrayList<Vaisseau> alVaisseau = new ArrayList<Vaisseau>();
+	private Vaisseau pt = null;
+	private ElementUnivers fer = new ElementUnivers();
+	private Blindage blindage =  new Blindage();
+	private Coque coque = new Coque();
+	
 	public ScenarioTest1() {
 
-		ArrayList<Vaisseau> alVaisseau = new ArrayList<Vaisseau>();
+		
 
 		alVaisseau.add(new PetitTransporteur());
 
@@ -35,7 +42,7 @@ public class ScenarioTest1 {
 		 * 
 		 */
 
-		Vaisseau pt = null;
+		
 		try {
 			pt = new PetitTransporteur("Premier petit transporteur",new Combustion());
 		} catch (NomVaisseauException e) {
@@ -44,7 +51,7 @@ public class ScenarioTest1 {
 		}
 		
 		// création d'un composant
-		ElementUnivers fer = new ElementUnivers();
+		
 		fer.setNom("FER");
 		fer.setResistancePerforation(Double.valueOf(4));
 		fer.setPoidGrammes(Double.valueOf(7.8740));
@@ -52,12 +59,12 @@ public class ScenarioTest1 {
 		fer.setResistancePression(Double.valueOf(7.8740));
 		fer.setPrctDeComposition(Double.valueOf(100));
 		
-		Blindage blindage =  new Blindage();
+		
 		blindage.setEpaisseurMM(Double.valueOf(125));
 		blindage.setMateriel(fer);
 		blindage.setSurface(Double.valueOf(300000));
 		
-		Coque coque = new Coque();
+		
 		try {
 			coque.ajouterBlindage(blindage);
 		} catch (BlindageException e1) {
@@ -71,6 +78,46 @@ public class ScenarioTest1 {
 
 		System.out.println(pt.presenterVaisseau());
 
+	}
+
+	public ArrayList<Vaisseau> getAlVaisseau() {
+		return alVaisseau;
+	}
+
+	public void setAlVaisseau(ArrayList<Vaisseau> alVaisseau) {
+		this.alVaisseau = alVaisseau;
+	}
+
+	public Vaisseau getPt() {
+		return pt;
+	}
+
+	public void setPt(Vaisseau pt) {
+		this.pt = pt;
+	}
+
+	public ElementUnivers getFer() {
+		return fer;
+	}
+
+	public void setFer(ElementUnivers fer) {
+		this.fer = fer;
+	}
+
+	public Blindage getBlindage() {
+		return blindage;
+	}
+
+	public void setBlindage(Blindage blindage) {
+		this.blindage = blindage;
+	}
+
+	public Coque getCoque() {
+		return coque;
+	}
+
+	public void setCoque(Coque coque) {
+		this.coque = coque;
 	}
 
 

@@ -30,6 +30,17 @@ public class ElementUnivers {
 		this.compositionAliage = null;
 		this.prctDeComposition = Double.valueOf(100);
 	}
+	
+	public ElementUnivers(String nom,Double poid){
+		
+		this.nom = nom;
+		this.poidmiliGrammes = poid;
+		this.compositionAliage = null;
+		this.resistancePression = 0.0;
+		this.resistancePerforation = 0.0;
+		this.resistanceChaleur = 0.0;
+		this.prctDeComposition = 0.0;
+	}
 
 	/*
 	 * getters et setters
