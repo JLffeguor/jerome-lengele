@@ -30,7 +30,11 @@ public class ElementUnivers {
 		this.compositionAliage = null;
 		this.prctDeComposition = Double.valueOf(100);
 	}
-	
+	/**
+	 * Constructeur simple avec le reste des elemen remplit par défaut
+	 * @param nom
+	 * @param poid
+	 */
 	public ElementUnivers(String nom,Double poid){
 		
 		this.nom = nom;

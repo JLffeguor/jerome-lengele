@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 
+@SuppressWarnings("serial")
 public class PresentationElemFrame extends JFrame{
 
 	//Créaton des élément
@@ -39,6 +40,7 @@ public class PresentationElemFrame extends JFrame{
 	private JPanel stackFrame = new JPanel();
 	private JLabel labStackFrame = new JLabel();
 	
+	private ElementUnivers elem = null;
 	
 	private JFormattedTextField ftxtfieldPoid = new JFormattedTextField(NumberFormat.getNumberInstance());
 	
@@ -68,30 +70,38 @@ public class PresentationElemFrame extends JFrame{
 		bCreerNouvelElement.setSize(40, 20);
 		contentPan.add(bCreerNouvelElement);
 		
-		
-		
 		bCreerNouvelElement.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				ElementUnivers elem = null;
+				ElementUnivers elemTemp = null;
+				String nomElement = null;Double poidElement = 0.0;
 				
-				elem = new ElementUnivers(labNewNom.getText(),Double.valueOf(ftxtfieldPoid.getText()));
+				try{
+					nomElement = labNewNom.getText();
+					poidElement = Double.valueOf(ftxtfieldPoid.getText());
+				}catch(NumberFormatException e){
+					System.out.println(e.getCause());
+					labStackFrame.setText("une erreur c'est produite");
+					nomElement = "";
+					poidElement = 0.0;
+				}
+				ElemDialog eDia = new ElemDialog(null, "Etes-vos certain de vouloir creer cet élément ?", true, elemTemp);
 				
 				labNewNom.setText("");
 				ftxtfieldPoid.setText("");
-				
+				elem = new ElementUnivers(nomElement, poidElement);
 				System.out.println("un nouvel element a été crée : " + elem.getNom() + " et son poid est de " + elem.getPoidGrammes() + " mg par unité");
 				contentPan.add(stackFrame);
-				labStackFrame.getBaselineResizeBehavior();
-				labStackFrame.setText("un nouvel element a été crée : " + elem.getNom() + " et son poid est de " + elem.getPoidGrammes() + " mg par unité");
+//				labStackFrame.getBaselineResizeBehavior();
+				
 				
 			}
 		});
 		
 		this.setTitle("Création d'un nouvel elementUnivers");
-		this.setSize(400, 600);
+		this.setSize(800, 400);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
