@@ -75,24 +75,31 @@ public class PresentationElemFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
+				
 				ElementUnivers elemTemp = null;
 				String nomElement = null;Double poidElement = 0.0;
 				
 				try{
 					nomElement = labNewNom.getText();
 					poidElement = Double.valueOf(ftxtfieldPoid.getText());
+					labStackFrame.setVisible(false);
 				}catch(NumberFormatException e){
 					System.out.println(e.getCause());
+					labStackFrame.setVisible(true);
 					labStackFrame.setText("une erreur c'est produite");
 					nomElement = "";
 					poidElement = 0.0;
+					
 				}
-				ElemDialog eDia = new ElemDialog(null, "Etes-vos certain de vouloir creer cet élément ?", true, elemTemp);
-				
+				elem = new ElementUnivers(nomElement, poidElement);
+				ElemDialog eDia = new ElemDialog(null, "Etes-vos certain de vouloir creer cet élément ?", true, elem);
+				elem.setResistanceChaleur(eDia.getElem().getResistanceChaleur());
+				eDia.showElemDialog();
 				labNewNom.setText("");
 				ftxtfieldPoid.setText("");
-				elem = new ElementUnivers(nomElement, poidElement);
-				System.out.println("un nouvel element a été crée : " + elem.getNom() + " et son poid est de " + elem.getPoidGrammes() + " mg par unité");
+				
+				System.out.println("un nouvel element a été crée : " + elem.getNom() + " et son poid est de " + elem.getPoidGrammes() + " mg par unité" 
+								+ " et sa résistance a la chaleur est de " + elem.getResistanceChaleur() + "°C");
 				contentPan.add(stackFrame);
 //				labStackFrame.getBaselineResizeBehavior();
 				

@@ -26,15 +26,15 @@ import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 public class ElemDialog extends JDialog{
 
 	private boolean sendData;
-	private ElementUnivers elem;
+	private ElementUnivers elem = null;
 	private JLabel resistanceChaleurLabel,resistancePerforationLAbel,resistancePressionLabel;
 	private JTextField resistanceChaleurJTF,resistancePerforationJTF,resistancePressionJTF;
 	
 	
-	public ElemDialog (JFrame parent,String title,boolean modal,ElementUnivers elem){
+	public ElemDialog (JFrame parent,String title,boolean modal,ElementUnivers elem1){
 		//On appele le consruteur de Jdialog correspondant
 		super(parent,title,modal);
-		this.elem = elem;
+		this.elem = elem1;
 		//on spécifie une taille
 		this.setSize(400, 800);
 		//la position
@@ -52,6 +52,10 @@ public class ElemDialog extends JDialog{
 		this.sendData = false;
 		this.setVisible(true);
 		return this.elem;
+	}
+	
+	public ElementUnivers getElem(){
+		return elem;
 	}
 	
 	private void initComponent(){
@@ -83,15 +87,17 @@ public class ElemDialog extends JDialog{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				elem.setResistanceChaleur(Double.valueOf(resistanceChaleurJTF.getText()));
+				setVisible(false);
 			}
 		});
 		
 		JButton cancelBouton = new JButton("Annuler");
 		cancelBouton.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent arg0) {
-		setVisible(false);
-		}
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+			}
 		});
+		
 		control.add(okBouton);
 		control.add(cancelBouton);
 		this.getContentPane().add(panIcon, BorderLayout.WEST);

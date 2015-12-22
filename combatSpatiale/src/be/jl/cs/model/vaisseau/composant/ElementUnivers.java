@@ -2,6 +2,10 @@ package be.jl.cs.model.vaisseau.composant;
 
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * 
  * @author jlengele
@@ -12,8 +16,13 @@ import java.util.List;
  * une resistance a la perforation au cm²/mm d'épaisseur
  *une résistance a la chaleur, un poid au grammes, il peut etre composé de plusieur Composant 
  */
+
+@javax.persistence.Entity
 public class ElementUnivers {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	private String nom;
 	private List<ElementUnivers> compositionAliage;
 	private Double resistancePression;// => cm²/mm d'épaisseur
