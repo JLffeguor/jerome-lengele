@@ -2,6 +2,7 @@ package be.jl.cs.model.vaisseau.composant;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ import javax.persistence.Id;
  *une résistance a la chaleur, un poid au grammes, il peut etre composé de plusieur Composant 
  */
 
-@javax.persistence.Entity
+@Entity
 public class ElementUnivers {
 
 	@Id

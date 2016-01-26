@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
+import javax.annotation.PostConstruct;
+import javax.persistence.PostPersist;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -15,10 +17,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.hibernate.id.GUIDGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
+import be.jl.cs.service.ElementUniversService;
 
 @SuppressWarnings("serial")
 public class PresentationElemFrame extends JFrame{
+	
+	@Autowired
+	ElementUniversService elementUniversService; //indispensable, sinon on ne sait pas communiquer
 
 	//Créaton des élément
 	private JPanel contentPan = new JPanel();
@@ -40,7 +49,7 @@ public class PresentationElemFrame extends JFrame{
 	private JPanel stackFrame = new JPanel();
 	private JLabel labStackFrame = new JLabel();
 	
-	private ElementUnivers elem = null;
+	public ElementUnivers elem = null;
 	
 	private JFormattedTextField ftxtfieldPoid = new JFormattedTextField(NumberFormat.getNumberInstance());
 	
@@ -98,14 +107,19 @@ public class PresentationElemFrame extends JFrame{
 				labNewNom.setText("");
 				ftxtfieldPoid.setText("");
 				
+				
+
 				System.out.println("un nouvel element a été crée : " + elem.getNom() + " et son poid est de " + elem.getPoidGrammes() + " mg par unité" 
 								+ " et sa résistance a la chaleur est de " + elem.getResistanceChaleur() + "°C");
 				contentPan.add(stackFrame);
+				
+				
 //				labStackFrame.getBaselineResizeBehavior();
 				
 				
 			}
 		});
+		elementUniversService.creerElementUnivers(elem);
 		
 		this.setTitle("Création d'un nouvel elementUnivers");
 		this.setSize(800, 400);
