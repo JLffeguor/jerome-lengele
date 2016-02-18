@@ -7,8 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.PostPersist;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
@@ -17,18 +15,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.hibernate.id.GUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 import be.jl.cs.service.ElementUniversService;
 
 @SuppressWarnings("serial")
-public class PresentationElemFrame extends JFrame{
+public class PresentationElemFrame extends PanelHelper{
 	
-	@Autowired
-	ElementUniversService elementUniversService; //indispensable, sinon on ne sait pas communiquer
+	private static GUIConnector guiConnector;
+	
+	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	ElementUniversService elementUniversService = (ElementUniversService) context.getBean("elementUniversService");
+	
+	static ElementUniversService elemService;
 
+	
+	
 	//Créaton des élément
 	private JPanel contentPan = new JPanel();
 	private JPanel panDroite = new JPanel();
@@ -54,6 +59,9 @@ public class PresentationElemFrame extends JFrame{
 	private JFormattedTextField ftxtfieldPoid = new JFormattedTextField(NumberFormat.getNumberInstance());
 	
 	public PresentationElemFrame(){
+		
+		
+		
 		
 		//position et gestion de l'élément stackframe
 		stackFrame.setSize(this.getWidth(), 10);
@@ -85,7 +93,7 @@ public class PresentationElemFrame extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				
-				ElementUnivers elemTemp = null;
+				
 				String nomElement = null;Double poidElement = 0.0;
 				
 				try{
@@ -107,8 +115,10 @@ public class PresentationElemFrame extends JFrame{
 				labNewNom.setText("");
 				ftxtfieldPoid.setText("");
 				
+//				getGuiConnector().getElementUniversService().creerElementUnivers(elem);
 				
-
+				elementUniversService.creerElementUnivers(elem);
+				
 				System.out.println("un nouvel element a été crée : " + elem.getNom() + " et son poid est de " + elem.getPoidGrammes() + " mg par unité" 
 								+ " et sa résistance a la chaleur est de " + elem.getResistanceChaleur() + "°C");
 				contentPan.add(stackFrame);
@@ -119,7 +129,6 @@ public class PresentationElemFrame extends JFrame{
 				
 			}
 		});
-		elementUniversService.creerElementUnivers(elem);
 		
 		this.setTitle("Création d'un nouvel elementUnivers");
 		this.setSize(800, 400);

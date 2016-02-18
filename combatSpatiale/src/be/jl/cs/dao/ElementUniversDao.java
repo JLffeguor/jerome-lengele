@@ -4,20 +4,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 
 @Repository
-@Transactional
-public class ElementUniversDao {
+@SuppressWarnings("unchecked")
+public class ElementUniversDao extends BaseRepository<ElementUnivers>{
 
-	@PersistenceContext 
-	EntityManager em;
 	
-	
-	public void persist(ElementUnivers entity){
-		em.persist(entity);
-		
+	public ElementUnivers findByName(String nomElementUnivers) {
+		return getSingleOrNullResult(em.createQuery("select b from ElementUnivers b where b.nom=:nom").setParameter("nom", nomElementUnivers));
 	}
 }

@@ -1,26 +1,26 @@
 package be.jl.cs.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import be.jl.cs.dao.ElementUniversDao;
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 
-@Service("ElementUniverBO")
-@Transactional
-public class ElementUniversService implements ElementUniverBO{
+@Component
+@Service
+public class ElementUniversService {
 	
 	@Autowired
-	private ElementUniversDao elementUniver;
+	private ElementUniversDao elementUniverDao;
 
 	
 	public void creerElementUnivers(ElementUnivers e){
 		
 		if(e == null){
-			throw new IllegalArgumentException("le paramêre ElementUnivers ne peut pas être null");
+			throw new IllegalArgumentException("le paramêtre ElementUnivers ne peut pas être null");
 		}
-		elementUniver.persist(e);
+		elementUniverDao.persist(e);
 		
 	}
 }

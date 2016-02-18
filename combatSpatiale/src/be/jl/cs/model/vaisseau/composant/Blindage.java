@@ -1,19 +1,24 @@
 package be.jl.cs.model.vaisseau.composant;
 
-import java.text.DecimalFormat;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * 
  * @author jlengele
  * @version 1.0
  * @since
- *Composant d'un coque
+ *Composant d'une coque
  */
-public class Blindage {
+@Entity
+@Table(name="T_BLINDAGE")
+public class Blindage extends BaseEntity{
 
 	private Double epaisseurMM;
 	private ElementUnivers materiel;
 	private Double surfaceCmC;
+	private Integer place;
+	private TypePlace TypePlace; 
 	
 	/*
 	 * constructeur
