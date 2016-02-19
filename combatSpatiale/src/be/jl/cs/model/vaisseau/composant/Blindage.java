@@ -1,6 +1,7 @@
 package be.jl.cs.model.vaisseau.composant;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,9 +16,11 @@ import javax.persistence.Table;
 public class Blindage extends BaseEntity{
 
 	private Double epaisseurMM;
+	@OneToOne
 	private ElementUnivers materiel;
 	private Double surfaceCmC;
-	private Integer place;
+	private Integer nbrPlace;
+	@OneToOne
 	private TypePlace TypePlace; 
 	
 	/*

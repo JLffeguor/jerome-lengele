@@ -1,5 +1,8 @@
 package be.jl.cs.model.vaisseau.composant;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * 
  * @author jlengele
@@ -9,8 +12,10 @@ package be.jl.cs.model.vaisseau.composant;
  * touchée cela provoque beaucoup de dégat, peut couper l'alimentation de certaine armes, les bouclies peuvent tomber , etc.
  * Pour chaque type de place on peut prévoir un comportement différent si elle est détruite.
  */
-public class TypePlace {
+@Entity
+@Table(name = "T_TYPE_PLACE")
+public class TypePlace extends BaseEntity{
 
-	private String nom;
+	private String nomType;
 	private Integer degatCauser;
 }

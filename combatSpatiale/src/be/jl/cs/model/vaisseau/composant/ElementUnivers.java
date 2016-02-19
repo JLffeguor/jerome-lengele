@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,6 +28,7 @@ public class ElementUnivers extends BaseEntity{
 	private String nom;
 	@Column(name = "T_E_U_COMPOSITION_ALLIAGE")
 	@OneToMany
+	@JoinColumn(name = "T_COMPOSITION_ALLIAGE")
 	private List<ElementUnivers> compositionAliage;
 	@Column(nullable = false,name = "T_E_U_RESITANCE_PRESSION")
 	private Double resistancePression;// => cm²/mm d'épaisseur
