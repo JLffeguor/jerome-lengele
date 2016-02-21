@@ -4,7 +4,6 @@ public class Main {
 	
 
 	public static void main(String[] args) {
-		
 //		new ScenarioTestFichier();
 		
 //		new ScenarioTest1();
@@ -16,10 +15,13 @@ public class Main {
 //		ElementUnivers eu = new ElementUnivers("or", 12.1);
 //		
 //		euBO.creerElementUnivers(eu);
+//		new ScenarioTestJFrame();
+
+		new TestHibernateDbMySQL();
 		
-		
-		new ScenarioTestJFrame();
-	
-		
+		System.exit(0);
 	}
+	
+	
+	
 }

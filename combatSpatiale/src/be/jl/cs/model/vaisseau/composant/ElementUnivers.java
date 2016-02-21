@@ -1,11 +1,15 @@
 package be.jl.cs.model.vaisseau.composant;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapKey;
 import javax.persistence.Table;
 
 /**
@@ -17,7 +21,10 @@ import javax.persistence.Table;
  *une resistance a la pression au cm²/mm d'épaisseur,
  * une resistance a la perforation au cm²/mm d'épaisseur
  *une résistance a la chaleur, un poid au grammes, il peut etre composé de plusieur element
- *dans le cas ou l'élément est pur compositionAliage=null et prctDeComposition = 100 
+ * afin de faciliter la composition d'alliage, l'objet compositionAlliage a été crée
+ * Donc un élément comme le bronze aura une list avec 2 occurence de CompositionAlliage
+ * 		- le premier CompositionAlliage aura pour element le cuivre et comme pourentage 50
+ * 		- le second CompositionAlliage aura pour élément l'étain et comme pourcentage 50
  */
 
 @Entity
@@ -27,9 +34,10 @@ public class ElementUnivers extends BaseEntity{
 	@Column(nullable = false, unique = true,name="T_E_U_NOM")
 	private String nom;
 	@Column(name = "T_E_U_COMPOSITION_ALLIAGE")
-	@OneToMany
-	@JoinColumn(name = "T_COMPOSITION_ALLIAGE")
-	private List<ElementUnivers> compositionAliage;
+	@ManyToMany
+	@JoinColumn(name = "T_COMPOSITION_ALLIAGE")/**l'annotation @joinColumn permet bien de choisir le nom de la table de jointure*/
+	private List<CompositionAlliage> compositionAlliage = new ArrayList<CompositionAlliage>();
+	
 	@Column(nullable = false,name = "T_E_U_RESITANCE_PRESSION")
 	private Double resistancePression;// => cm²/mm d'épaisseur
 	@Column(nullable = false,name = "T_E_U_RESISTANCE_PERFORATION")
@@ -47,7 +55,7 @@ public class ElementUnivers extends BaseEntity{
 	 */
 	
 	public ElementUnivers(){
-		this.compositionAliage = null;
+		this.compositionAlliage = null;
 		this.prctDeComposition = Double.valueOf(100);
 	}
 	/**
@@ -59,7 +67,7 @@ public class ElementUnivers extends BaseEntity{
 		
 		this.nom = nom;
 		this.poidmiliGrammes = poid;
-		this.compositionAliage = null;
+		this.compositionAlliage = null;
 		this.resistancePression = 0.0;
 		this.resistancePerforation = 0.0;
 		this.resistanceChaleur = 0.0;
@@ -75,12 +83,14 @@ public class ElementUnivers extends BaseEntity{
 	 * @param poid
 	 * @param compo
 	 */
-	public ElementUnivers(String n, ElementUnivers compa,Double rpre, Double rperf, Double rcha, Double poid, Double compo){
+	public ElementUnivers(String n, CompositionAlliage compa,Double rpre, Double rperf, Double rcha, Double poid, Double compo){
 		
 		this.nom = n;
 		if(compa != null)
 		{
-			this.compositionAliage.add(compa);
+			this.compositionAlliage.add(compa);
+		}else{
+			this.compositionAlliage = null;
 		}
 		this.resistancePression = rpre;
 		this.resistancePerforation = rperf;
@@ -100,12 +110,12 @@ public class ElementUnivers extends BaseEntity{
 		this.nom = nom;
 	}
 
-	public List<ElementUnivers> getCompositionAliage() {
-		return compositionAliage;
+	public List<CompositionAlliage> getCompositionAliage() {
+		return compositionAlliage;
 	}
 
-	public void setCompositionAliage(List<ElementUnivers> compositionAliage) {
-		this.compositionAliage = compositionAliage;
+	public void setCompositionAliage(CompositionAlliage compositionAliage) {
+		this.compositionAlliage.add(compositionAliage);
 	}
 
 	public Double getResistancePression() {
