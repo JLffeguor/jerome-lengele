@@ -3,8 +3,12 @@ package be.jl.cs.main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import be.jl.cs.model.vaisseau.composant.CompositionAlliage;
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
+import be.jl.cs.model.vaisseau.composant.Rarete;
+import be.jl.cs.service.CompositionAlliageService;
 import be.jl.cs.service.ElementUniversService;
+import be.jl.cs.service.RareteService;
 
 /**
  * 
@@ -16,21 +20,46 @@ public class TestHibernateDbMySQL {
 
 	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 	ElementUniversService elementUniversService = (ElementUniversService) context.getBean("elementUniversService");
+	RareteService rareteService = (RareteService) context.getBean("rareteService");
+	CompositionAlliageService compositionAlliageService= (CompositionAlliageService) context.getBean("compositionAlliageService");
 	
 	public TestHibernateDbMySQL(){
 		
-		//recupération de élémént unviver
-		
-		ElementUnivers elemTest = new ElementUnivers("muche", null, 14.2, 100.2, 12.4, 100.1, 100.0);
+		//création des raretés
+		Rarete rarete = new Rarete();
+		rarete.setNom("normale");
+		rarete.setPrctTrouve(33.3);
+		//création des éléments		
+		ElementUnivers elemTest = new ElementUnivers("muche",14.2, 100.2, 12.4, 100.1,rarete);
+		ElementUnivers elemTest1 = new ElementUnivers("truc", 44.2, 120.2, 412.4, 10.1,rarete);
+		ElementUnivers elemTest2 = new ElementUnivers("truc-muche", 44.2, 120.2, 412.4, 10.1,rarete);
+		//Création des compositions
+		CompositionAlliage cp = new CompositionAlliage(elemTest,50.0);
+		CompositionAlliage cp1 = new CompositionAlliage(elemTest1,50.0);
 		//test avec une composition
-		ElementUnivers elemTest1 = new ElementUnivers("truc", elemTest, 44.2, 120.2, 412.4, 10.1, 50.0);
+		elemTest2.getCompositionAlliage().add(cp);
+		elemTest2.getCompositionAlliage().add(cp1);
 		
-		/**
-		 * commit des 2 élément truc et muche
-		 */
+		
+		/** persist les rareté*/
+		rareteService.creerRarete(rarete);
+		System.out.println(rarete + "\n Rarete persist");
+		
+		
+		/** commit des 2 élément truc et muche */
 		elementUniversService.creerElementUnivers(elemTest);
 		elementUniversService.creerElementUnivers(elemTest1);
+		System.out.println(elemTest + "\n elemTest persist\n" + elemTest1 + "\n elemTest1 persist");
 		
+		
+		/** persist des composition*/
+		compositionAlliageService.creerCompositionAlliage(cp);
+		compositionAlliageService.creerCompositionAlliage(cp1);
+		System.out.println(cp + "/n cp persist\n" + cp1 + "\n cp1 persist");
+		
+		
+		elementUniversService.creerElementUnivers(elemTest2);
+
 	}
 	
 }

@@ -42,7 +42,6 @@ public class Coque {
 					+ "\n\tépaisseur(mm) : " + String.valueOf(blindage.getEpaisseurMM()) 
 					+ "\n\tSurface(cm²) : " + String.valueOf(blindage.getSurface())
 					+ "\n\t\télémént : " + String.valueOf(blindage.getMateriel().getNom())
-					+ "\n\t\t\tIl est composé à " + String.valueOf(blindage.getMateriel().getPrctDeComposition()) +"% de cet élément"
 					+ "\n\t\t\tPoid du blindage : " + String.valueOf(blindage.poidBlindageKg() + "kg")
 					+ "\n\t\t\tSa résistance a la pression est de : " + DataTools.doubleToString(blindage.resistancePressionBlindage())
 					+ "\n\t\t\tSa résistance a la chaleur est de : " + String.valueOf(blindage.getMateriel().getResistanceChaleur())

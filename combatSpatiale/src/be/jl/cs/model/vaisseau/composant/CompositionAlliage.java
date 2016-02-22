@@ -1,6 +1,7 @@
 package be.jl.cs.model.vaisseau.composant;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 /**
  * 
  * @author jerronimo31
@@ -8,16 +9,22 @@ import javax.persistence.Entity;
  */
 @Entity
 public class CompositionAlliage extends BaseEntity{
-
+	
+	@OneToOne
 	private ElementUnivers element;
 	private Double pourcentage;
 	
 	public CompositionAlliage(){}
 
+	public CompositionAlliage(ElementUnivers e, Double p){
+		this.element = e;
+		this.pourcentage = p;
+	}
+	
 	public ElementUnivers getElement() {
 		return element;
 	}
-
+	
 	public void setElement(ElementUnivers element) {
 		this.element = element;
 	}

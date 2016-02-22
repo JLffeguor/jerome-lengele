@@ -57,7 +57,6 @@ public class ScenarioTest1 {
 		fer.setPoidGrammes(Double.valueOf(7.8740));
 		fer.setResistanceChaleur(Double.valueOf(1811.2));
 		fer.setResistancePression(Double.valueOf(7.8740));
-		fer.setPrctDeComposition(Double.valueOf(100));
 		
 		
 		blindage.setEpaisseurMM(Double.valueOf(125));

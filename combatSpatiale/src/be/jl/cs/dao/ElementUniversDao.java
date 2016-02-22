@@ -1,9 +1,7 @@
 package be.jl.cs.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
+
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 
 @Repository

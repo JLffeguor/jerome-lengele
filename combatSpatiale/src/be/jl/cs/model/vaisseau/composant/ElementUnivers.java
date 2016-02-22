@@ -1,15 +1,13 @@
 package be.jl.cs.model.vaisseau.composant;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.MapKey;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,11 +31,9 @@ public class ElementUnivers extends BaseEntity{
 
 	@Column(nullable = false, unique = true,name="T_E_U_NOM")
 	private String nom;
-	@Column(name = "T_E_U_COMPOSITION_ALLIAGE")
 	@ManyToMany
 	@JoinColumn(name = "T_COMPOSITION_ALLIAGE")/**l'annotation @joinColumn permet bien de choisir le nom de la table de jointure*/
 	private List<CompositionAlliage> compositionAlliage = new ArrayList<CompositionAlliage>();
-	
 	@Column(nullable = false,name = "T_E_U_RESITANCE_PRESSION")
 	private Double resistancePression;// => cm²/mm d'épaisseur
 	@Column(nullable = false,name = "T_E_U_RESISTANCE_PERFORATION")
@@ -46,9 +42,8 @@ public class ElementUnivers extends BaseEntity{
 	private Double resistanceChaleur;// => en K
 	@Column(nullable = false,name = "T_E_U_POID")
 	private Double poidmiliGrammes;// => en mg/mm³
-	@Column(nullable = false,name="T_E_U_COMPOSITION")
-	private Double prctDeComposition; // => lors d'un alliange, détermine le pourcentage de chaque composant.
-	
+	@OneToOne
+	private Rarete rarete;
 	
 	/*
 	 * constructeur
@@ -56,7 +51,6 @@ public class ElementUnivers extends BaseEntity{
 	
 	public ElementUnivers(){
 		this.compositionAlliage = null;
-		this.prctDeComposition = Double.valueOf(100);
 	}
 	/**
 	 * Constructeur simple avec le reste des elemen remplit par défaut
@@ -71,7 +65,6 @@ public class ElementUnivers extends BaseEntity{
 		this.resistancePression = 0.0;
 		this.resistancePerforation = 0.0;
 		this.resistanceChaleur = 0.0;
-		this.prctDeComposition = 0.0;
 	}
 	/**
 	 * Constructeur Complet
@@ -82,21 +75,16 @@ public class ElementUnivers extends BaseEntity{
 	 * @param rcha
 	 * @param poid
 	 * @param compo
+	 * @param rarete
 	 */
-	public ElementUnivers(String n, CompositionAlliage compa,Double rpre, Double rperf, Double rcha, Double poid, Double compo){
+	public ElementUnivers(String n,Double rpre, Double rperf, Double rcha, Double poid, Rarete rarete){
 		
 		this.nom = n;
-		if(compa != null)
-		{
-			this.compositionAlliage.add(compa);
-		}else{
-			this.compositionAlliage = null;
-		}
 		this.resistancePression = rpre;
 		this.resistancePerforation = rperf;
 		this.resistanceChaleur = rcha;
 		this.poidmiliGrammes = poid;
-		this.prctDeComposition = compo;
+		this.rarete = rarete;
 	}
 
 	/*
@@ -108,14 +96,6 @@ public class ElementUnivers extends BaseEntity{
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	public List<CompositionAlliage> getCompositionAliage() {
-		return compositionAlliage;
-	}
-
-	public void setCompositionAliage(CompositionAlliage compositionAliage) {
-		this.compositionAlliage.add(compositionAliage);
 	}
 
 	public Double getResistancePression() {
@@ -149,12 +129,20 @@ public class ElementUnivers extends BaseEntity{
 	public void setPoidGrammes(Double poidGrammes) {
 		this.poidmiliGrammes = poidGrammes;
 	}
-	public Double getPrctDeComposition() {
-		return prctDeComposition;
+	public Rarete getRarete() {
+		return rarete;
 	}
-	public void setPrctDeComposition(Double prctDeComposition) {
-		this.prctDeComposition = prctDeComposition;
+	public void setRarete(Rarete rarete) {
+		this.rarete = rarete;
 	}
+	public List<CompositionAlliage> getCompositionAlliage() {
+		return compositionAlliage;
+	}
+	public void setCompositionAlliage(List<CompositionAlliage> compositionAlliage) {
+		this.compositionAlliage = compositionAlliage;
+	}
+	
+	
 
 	
 }
