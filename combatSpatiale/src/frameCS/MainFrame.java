@@ -106,7 +106,6 @@ public class MainFrame extends JFrame {
 	  boolean backY = false;
 	  
 	  //pour l'exemple , un boucle While est utilisée
-	  //TODO refaire cette méthde avec un for ou un do...while
 	  while(true){
 		  //si la coordonnée x est < 1 on avance
 		  if(x < 1) backX=false;
@@ -140,7 +139,6 @@ public class MainFrame extends JFrame {
 //	 * Méthode qui seras appelée lors d'un clis sur le bouton
 //	 * */
 //	public void actionPerformed(ActionEvent e) {
-//	// TODO Auto-generated method stub
 //	/**
 //	 * getSource sur un event permet si jamais il y a plusieur bouton d'exécuter 2 action différent ( une par élément)
 //	 * */

@@ -85,7 +85,6 @@ public class ElemDialog extends JDialog{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				elem.setResistanceChaleur(Double.valueOf(resistanceChaleurJTF.getText()));
 				setVisible(false);
 			}

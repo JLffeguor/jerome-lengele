@@ -34,7 +34,6 @@ public class BoutonCS extends JButton implements MouseListener{
 	@Override
 	//appelé lors du clic
 	public void mouseClicked(MouseEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -50,21 +49,18 @@ public class BoutonCS extends JButton implements MouseListener{
 	@Override
 	//appelé lorsque la souris sors du bouton.
 	public void mouseExited(MouseEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	//clic gauche
 	public void mousePressed(MouseEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	//clic droit
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 }

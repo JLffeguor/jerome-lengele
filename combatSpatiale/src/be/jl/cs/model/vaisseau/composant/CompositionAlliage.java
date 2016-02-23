@@ -2,6 +2,8 @@ package be.jl.cs.model.vaisseau.composant;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+
+import be.jl.cs.model.BaseEntity;
 /**
  * 
  * @author jerronimo31

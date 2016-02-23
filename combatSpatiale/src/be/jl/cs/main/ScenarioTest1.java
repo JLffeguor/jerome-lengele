@@ -46,7 +46,6 @@ public class ScenarioTest1 {
 		try {
 			pt = new PetitTransporteur("Premier petit transporteur",new Combustion());
 		} catch (NomVaisseauException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -61,7 +60,7 @@ public class ScenarioTest1 {
 		
 		blindage.setEpaisseurMM(Double.valueOf(125));
 		blindage.setMateriel(fer);
-		blindage.setSurface(Double.valueOf(300000));
+		blindage.setSurfaceMC(Double.valueOf(300000));
 		
 		
 		try {

@@ -3,6 +3,8 @@ package be.jl.cs.model.vaisseau.composant;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import be.jl.cs.model.BaseEntity;
+
 /**
  * 
  * @author jlengele

@@ -9,8 +9,6 @@ import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.StringUtils;
 
-import be.jl.cs.model.vaisseau.composant.BaseEntity;
-
 @Entity
 @Table(name = "users")
 @SuppressWarnings("serial")

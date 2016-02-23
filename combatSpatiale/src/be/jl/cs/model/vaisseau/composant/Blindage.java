@@ -4,11 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import be.jl.cs.model.BaseEntity;
+
 /**
  * 
  * @author jlengele
  * @version 1.0
- * @since
+ * @since 
  *Composant d'une coque
  */
 @Entity
@@ -18,7 +20,7 @@ public class Blindage extends BaseEntity{
 	private Double epaisseurMM;
 	@OneToOne
 	private ElementUnivers materiel;
-	private Double surfaceCmC;
+	private Double surfaceMC;
 	private Integer nbrPlace;
 	@OneToOne
 	private TypePlace TypePlace; 
@@ -26,9 +28,7 @@ public class Blindage extends BaseEntity{
 	/*
 	 * constructeur
 	 */
-	public Blindage(){
-		
-	}
+	public Blindage(){}
 	
 	/*
 	 * gettes et setters
@@ -49,10 +49,10 @@ public class Blindage extends BaseEntity{
 		this.materiel = materiel;
 	}
 	public Double getSurface(){
-		return surfaceCmC;
+		return surfaceMC;
 	}
-	public void setSurface(Double surface){
-		this.surfaceCmC = surface;
+	public void setSurfaceMC(Double surface){
+		this.surfaceMC = surface;
 	}
 	
 	/**
@@ -60,7 +60,7 @@ public class Blindage extends BaseEntity{
 	 * @return Double
 	 */
 	public Double resistancePressionBlindage(){
-		return (materiel.getResistancePression()*this.epaisseurMM*this.surfaceCmC)/1000 ;
+		return (materiel.getResistancePression()*this.epaisseurMM*this.surfaceMC)/1000 ;
 		
 	}
 	/**
@@ -69,15 +69,16 @@ public class Blindage extends BaseEntity{
 	 * 
 	 */
 	public Double resistancePerforationBlindage(){
-		return (materiel.getResistancePerforation()*this.epaisseurMM*this.surfaceCmC)/1000;
+		return (materiel.getResistancePerforation()*this.epaisseurMM*this.surfaceMC)/1000;
 	}
 	/**
-	 * 
+	 * calcule poid du blindage en kg
+	 * @return Double
 	 */
 	public Double poidBlindageKg(){
 		double volumeBlindageCmC,poid;
 		//on obtient le volume en cm³
-		volumeBlindageCmC = this.surfaceCmC * (this.epaisseurMM/1000);
+		volumeBlindageCmC = this.surfaceMC * (this.epaisseurMM/1000);
 		/*
 		 * comme le poid est donné en mg/mm³, je dois le multiplier par 1000 pour obtenir le poid en cm³
 		 * et je dois diviser tout par 1000000 pour obtenir le poid en kg ^^

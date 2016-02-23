@@ -3,9 +3,11 @@ package be.jl.cs.main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import be.jl.cs.model.vaisseau.composant.Blindage;
 import be.jl.cs.model.vaisseau.composant.CompositionAlliage;
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
 import be.jl.cs.model.vaisseau.composant.Rarete;
+import be.jl.cs.service.BlindageService;
 import be.jl.cs.service.CompositionAlliageService;
 import be.jl.cs.service.ElementUniversService;
 import be.jl.cs.service.RareteService;
@@ -22,6 +24,7 @@ public class TestHibernateDbMySQL {
 	ElementUniversService elementUniversService = (ElementUniversService) context.getBean("elementUniversService");
 	RareteService rareteService = (RareteService) context.getBean("rareteService");
 	CompositionAlliageService compositionAlliageService= (CompositionAlliageService) context.getBean("compositionAlliageService");
+	BlindageService blindageService =(BlindageService) context.getBean("blindageService");
 	
 	public TestHibernateDbMySQL(){
 		
@@ -29,13 +32,27 @@ public class TestHibernateDbMySQL {
 		Rarete rarete = new Rarete();
 		rarete.setNom("normale");
 		rarete.setPrctTrouve(33.3);
+		
+		
 		//création des éléments		
 		ElementUnivers elemTest = new ElementUnivers("muche",14.2, 100.2, 12.4, 100.1,rarete);
 		ElementUnivers elemTest1 = new ElementUnivers("truc", 44.2, 120.2, 412.4, 10.1,rarete);
 		ElementUnivers elemTest2 = new ElementUnivers("truc-muche", 44.2, 120.2, 412.4, 10.1,rarete);
+		
+		
 		//Création des compositions
 		CompositionAlliage cp = new CompositionAlliage(elemTest,50.0);
 		CompositionAlliage cp1 = new CompositionAlliage(elemTest1,50.0);
+		
+		
+		//création des Blindage
+		Blindage blindage = new Blindage();
+		Blindage blindage1 = new Blindage();
+		blindage.setEpaisseurMM(100.0); blindage.setMateriel(elemTest);blindage.setSurfaceMC(100.0);
+		blindage1.setEpaisseurMM(200.0);blindage1.setMateriel(elemTest1);blindage1.setSurfaceMC(100.0);
+		
+		
+		
 		//test avec une composition
 		elemTest2.getCompositionAlliage().add(cp);
 		elemTest2.getCompositionAlliage().add(cp1);
@@ -60,6 +77,10 @@ public class TestHibernateDbMySQL {
 		
 		elementUniversService.creerElementUnivers(elemTest2);
 
+		/** persist des blindage*/
+		blindageService.creerBlindage(blindage);
+		blindageService.creerBlindage(blindage1);
+		System.out.println(blindage + "\n Blindage persist");
 	}
 	
 }

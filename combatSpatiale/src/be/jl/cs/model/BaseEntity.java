@@ -1,4 +1,4 @@
-package be.jl.cs.model.vaisseau.composant;
+package be.jl.cs.model;
 
 import java.util.Date;
 
@@ -16,7 +16,6 @@ import javax.persistence.Transient;
 
 import org.hibernate.proxy.HibernateProxyHelper;
 
-import be.jl.cs.model.User;
 import be.jl.cs.securityContext.SecurityContext;
 import be.jl.cs.utils.DateUtil;
 

@@ -24,7 +24,7 @@ public class AppConfig {
 	private static Log log = LogFactory.getLog(FileUtil.class);
 	
 	private static final String PROPERTIE_FILE_NAME = "app.properties";
-	private static final Path PROPERTIE_FILE_PATH = FileUtil.getPathIntoConfigFolder(PROPERTIE_FILE_NAME); //TODO get filessystem seems more portable maybe implement a solution to don't have so long static declaration for a location? --maxime 13/12/12
+	private static final Path PROPERTIE_FILE_PATH = FileUtil.getPathIntoConfigFolder(PROPERTIE_FILE_NAME); // get filessystem seems more portable maybe implement a solution to don't have so long static declaration for a location? --maxime 13/12/12
 	private static final Charset PROPERTIE_FILE_ENCODING = FileUtil.getDefaultFileEncoding();
 	
 	private static PropertiesConfiguration applicationProperties =  null;
@@ -48,7 +48,6 @@ public class AppConfig {
 		
 	}
 	
-	//TODO mettre à public si nécessaire
 	private static boolean getBooleanProperty(String key) {
 		if(applicationProperties == null) {
 			loadPropertiesConfiguration();

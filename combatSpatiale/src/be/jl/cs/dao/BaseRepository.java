@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import be.jl.cs.model.vaisseau.composant.BaseEntity;
+import be.jl.cs.model.BaseEntity;
 import be.jl.cs.utils.ClassUtil;
 
 @Transactional

@@ -10,6 +10,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import be.jl.cs.model.BaseEntity;
+
 /**
  * 
  * @author jlengele
