@@ -18,11 +18,10 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 
 			<property name="hibernate.show_sql" value="true" />
-			
+
 			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop"/> -->
-			
-			<property name="hibernate.hbm2ddl.auto" value="create-drop"/> <!-- create 
-				erase and reconstruct at start -->
+
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" /> <!-- create erase and reconstruct at start -->
 		</properties>
 	</persistence-unit>
 </persistence>

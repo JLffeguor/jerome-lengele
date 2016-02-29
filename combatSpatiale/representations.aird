@@ -14,9 +14,6 @@
   <models xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/Types#/"/>
   <models xmi:type="uml:Package" href="DocumentsExterne/My.uml#_gdf4UIxdEeWque6UBY7y7Q"/>
-  <models xmi:type="uml:Model" href="My2.uml#_eqkHoIxIEeWOxv_IWxj1vQ"/>
-  <models xmi:type="uml:Model" href="my.uml#_jgIv4IbsEeWM5PYduuU74w"/>
-  <models xmi:type="uml:Model" href="test.uml#_rDelQIxtEeWfLtdDO19ZIA"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_j_4m8IbsEeWM5PYduuU74w">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='Reused']"/>
   </ownedViews>

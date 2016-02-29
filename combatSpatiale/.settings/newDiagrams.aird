@@ -13,9 +13,6 @@
   <models xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/Types#/"/>
   <models xmi:type="uml:Package" href="../DocumentsExterne/My.uml#_gdf4UIxdEeWque6UBY7y7Q"/>
-  <models xmi:type="uml:Model" href="../My2.uml#_eqkHoIxIEeWOxv_IWxj1vQ"/>
-  <models xmi:type="uml:Model" href="../my.uml#_jgIv4IbsEeWM5PYduuU74w"/>
-  <models xmi:type="uml:Model" href="../test.uml#_rDelQIxtEeWfLtdDO19ZIA"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_tVKBEIx6EeWFVOiq9eOceg" initialized="true">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_s36-oIbsEeWM5PYduuU74w" name="NewModel Class Diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_s4DhgIbsEeWM5PYduuU74w" source="GMF_DIAGRAMS">
