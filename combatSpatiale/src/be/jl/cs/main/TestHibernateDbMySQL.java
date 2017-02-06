@@ -3,6 +3,7 @@ package be.jl.cs.main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import be.jl.cs.model.User;
 import be.jl.cs.model.vaisseau.composant.Blindage;
 import be.jl.cs.model.vaisseau.composant.CompositionAlliage;
 import be.jl.cs.model.vaisseau.composant.ElementUnivers;
@@ -54,6 +55,11 @@ public class TestHibernateDbMySQL {
 		
 		
 		//test avec une composition
+		/**ici je décris l'élément elemTest2 comme étant un mélange de cp et cp1
+		 * cp est 50% de elemTest
+		 * cp1 est 50% de elemTest1
+		 * ce qui permet dans le futur que chaque élément qui contiendra 50% de elemTest contiendra CP.
+		 * */
 		elemTest2.getCompositionAlliage().add(cp);
 		elemTest2.getCompositionAlliage().add(cp1);
 		
@@ -81,6 +87,14 @@ public class TestHibernateDbMySQL {
 		blindageService.creerBlindage(blindage);
 		blindageService.creerBlindage(blindage1);
 		System.out.println(blindage + "\n Blindage persist");
+		
+		/** création de user*/
+		User u1 = new User();
+		User u2 = new User();
+		u1.setFirstName("jerome");
+		u1.setPassword("lengelé");
+		u2.setPassword("Du Bois");
+		u2.setFirstName("Céline");
 	}
 	
 }

@@ -25,6 +25,8 @@ import be.jl.cs.model.BaseEntity;
  * Donc un élément comme le bronze aura une list avec 2 occurence de CompositionAlliage
  * 		- le premier CompositionAlliage aura pour element le cuivre et comme pourentage 50
  * 		- le second CompositionAlliage aura pour élément l'étain et comme pourcentage 50
+ * 
+ *TODO de base regarde pour que élément univers contiennne une composition de 100% et que la sommes des composition = 100% sinon une erreur!!
  */
 
 @Entity
